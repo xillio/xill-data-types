@@ -7,7 +7,7 @@ group vendorGroup
 
 if(System.getenv('BUILD_NUMBER') != null || true) {
     // We are running on jenkins
-    version version + '_' + System.getenv('BUILD_NUMBER')
+    version version + '.' + System.getenv('BUILD_NUMBER')
     apply from: file('gradle/publish.gradle')
 }
 
