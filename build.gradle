@@ -1,0 +1,13 @@
+buildscript {
+    apply from: file('gradle/xillio/buildscript.gradle'), to: buildscript
+}
+apply from: file('gradle/xillio/xillio.gradle')
+apply from: file('gradle/java.gradle')
+group vendorGroup
+
+if(System.getenv('BUILD_NUMBER') != null || true) {
+    // We are running on jenkins
+    version version + '_' + System.getenv('BUILD_NUMBER')
+    apply from: file('gradle/publish.gradle')
+}
+

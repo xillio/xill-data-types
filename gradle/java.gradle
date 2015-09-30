@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+task sourceJar(type: Jar) {
+    group 'build'
+    description 'Build a jar containing java sources'
+
+    from sourceSets.main.allJava
+}
+
+tasks.withType(Jar) {
+    doFirst {
+        manifest {
+            attributes "Implementation-Version": version
+            attributes "Build-Date": new Date().format("dd-MM-yyyy")
+            attributes "Build-Java-Version": System.properties["java.version"]
+            if (project.hasProperty(project.name + "ProjectName")) {
+                attributes "Implementation-Title": project.getProperties().get(project.name + "ProjectName")
+            }
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation"
+}
+
+dependencies {
+    compile 'me.biesaart:commons:1.+'
+}
+
