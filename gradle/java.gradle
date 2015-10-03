@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compile 'me.biesaart:commons:1.+'
+    compile 'me.biesaart:commons:1.2.+'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.google.inject:guice:4.0'
 }
