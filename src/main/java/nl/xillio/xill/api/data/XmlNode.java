@@ -28,4 +28,9 @@ public interface XmlNode extends MetadataExpression {
 	 * @return XML content in string format
 	 */
 	String getXmlContent();
+
+	/**
+	 * @return a string containing all text extracted from XML node or XML document
+	 */
+	String getText();
 }
