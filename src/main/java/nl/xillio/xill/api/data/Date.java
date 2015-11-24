@@ -1,4 +1,4 @@
-package nl.xillio.util.xill.api.data;
+package nl.xillio.xill.api.data;
 
 
 import java.time.ZonedDateTime;

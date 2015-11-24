@@ -1,4 +1,4 @@
-package nl.xillio.util.xill.api.data;
+package nl.xillio.xill.api.data;
 
 /**
  * This interface represents an object that can be used as hidden information in a
