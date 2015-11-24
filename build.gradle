@@ -1,13 +1,21 @@
 buildscript {
-    apply from: file('gradle/xillio/buildscript.gradle'), to: buildscript
-}
-apply from: file('gradle/xillio/xillio.gradle')
-apply from: file('gradle/java.gradle')
-group vendorGroup
+    repositories {
+        maven {
+            url 'https://maven.xillio.com/artifactory/plugins-release/'
+        }
+    }
 
-if(System.getenv('BUILD_NUMBER') != null || true) {
-    // We are running on jenkins
-    version version + '.' + System.getenv('BUILD_NUMBER')
-    apply from: file('gradle/publish.gradle')
+    dependencies {
+        classpath 'nl.xillio:gradle-config:1.1.2'
+    }
+}
+apply plugin: 'nl.xillio.gradle-config'
+
+
+
+dependencies {
+    compile 'me.biesaart:commons:1.2.+'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.google.inject:guice:4.0'
 }
 
